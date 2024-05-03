@@ -1,7 +1,5 @@
-# Uniswap V3 Subgraph
+# UdonSwap V3 Subgraph
 
-### Subgraph Endpoint 
+### Subgraph Endpoint
 
-Synced at: https://thegraph.com/hosted-service/subgraph/ianlapham/uniswap-v3-subgraph?selected=playground
-
-Pending Changes at same URL
+Synced at: https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/subgraphs/udonswap-v3/1/gn
