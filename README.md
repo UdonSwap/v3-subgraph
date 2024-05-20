@@ -6,9 +6,9 @@ Synced at: https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/
 
 Ordering can be handeled client-side
 query for pools tab
- 
-```shell
-query TopPoolsWithRecentDayData {
+
+```graphql
+query topPools {
   pools(first: 10, orderBy: txCount, orderDirection: desc) {
     id
     totalValueLockedUSD
@@ -30,20 +30,20 @@ query TopPoolsWithRecentDayData {
       date
       liquidity
       volumeUSD
+      feesUSD
     }
   }
 }
-
 ```
 
-order by can be changed dynamically 
+order by can be changed dynamically
 if want to order it by TVL: totalValueLockedUSD
 
-
-to calculate 7 day Volume 
+to calculate 7 day Volume
 we have to do sum of 7 epoch (days)
 
 here is the example data obj
+
 ```json
  {
         "id": "0x85149247691df622eaf1a8bd0cafd40bc45154a9",
@@ -112,6 +112,5 @@ here is the example data obj
 **7 day volume** = sum of all **volumeUSD** under poolDayData
 
 **1 day volume** is just volumeUSD of first data object under **poolDayData**
-
 
 1 Day APR = pool' **totalValueLockedUSD** / first obj' **feesUSD**
