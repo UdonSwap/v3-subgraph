@@ -5,7 +5,8 @@
 Synced at: https://api.goldsky.com/api/public/project_clvqb3g2poub601xzgkzc9oxs/subgraphs/udonswap-v3/1/gn
 
 Ordering can be handeled client-side
-query for pools tab
+
+# query for pools tab
 
 ```graphql
 query topPools {
@@ -114,3 +115,63 @@ here is the example data obj
 **1 day volume** is just volumeUSD of first data object under **poolDayData**
 
 1 Day APR = pool' **totalValueLockedUSD** / first obj' **feesUSD**
+
+# query for transactions
+
+```graphql
+query MyQuery {
+  transactions(first: 100, orderBy: timestamp, orderDirection: desc) {
+    burns {
+      amount0
+      amount1
+      amountUSD
+      token0 {
+        symbol
+      }
+      token1 {
+        symbol
+      }
+      timestamp
+      origin
+    }
+    mints {
+      amount0
+      amount1
+      amountUSD
+      token0 {
+        symbol
+      }
+      token1 {
+        symbol
+      }
+      timestamp
+      origin
+    }
+    swaps {
+      amount0
+      amount1
+      amountUSD
+      token0 {
+        symbol
+      }
+      token1 {
+        symbol
+      }
+      timestamp
+      origin
+    }
+  }
+}
+```
+
+# query for both visual graph (tvl & volume)
+
+```graphql
+query MyQuery {
+  uniswapDayDatas(first: 100) {
+    tvlUSD
+    volumeUSD
+    date
+  }
+}
+```
